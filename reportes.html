@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes y Estadísticas - BIO-LAB</title>
+    
+    <link rel="stylesheet" crossorigin href="./assets/compiled/css/app.css">
+    <link rel="stylesheet" crossorigin href="./assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" crossorigin href="./assets/compiled/css/iconly.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <script src="assets/static/js/initTheme.js"></script>
+    <div id="app">
+        <!-- SIDEBAR (Igual al index, pero activo en Reportes) -->
+        <div id="sidebar">
+            <!-- ... (Mismo contenido del sidebar que el index) ... -->
+            <!-- Asegúrate de poner la clase 'active' en el li de Reportes -->
+        </div>
+
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Reportes y Estadísticas</h3>
+                            <p class="text-subtitle text-muted">Análisis de muestras y productividad del laboratorio.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="section">
+                    <div class="row">
+                        <!-- Card: Total de Pruebas -->
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body px-4 py-4-5">
+                                    <div class="d-flex align-items-center">
+                                        <div class="stats-icon green mb-2 me-3">
+                                            <i class="bi bi-activity"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="text-muted font-semibold">Total Pruebas (Mes)</h6>
+                                            <h6 class="font-extrabold mb-0">1,240</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card: Reactivos Críticos -->
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body px-4 py-4-5">
+                                    <div class="d-flex align-items-center">
+                                        <div class="stats-icon red mb-2 me-3">
+                                            <i class="bi bi-exclamation-triangle"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="text-muted font-semibold">Alertas de Stock</h6>
+                                            <h6 class="font-extrabold mb-0">3 Insumos</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card: Tiempo Promedio -->
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body px-4 py-4-5">
+                                    <div class="d-flex align-items-center">
+                                        <div class="stats-icon blue mb-2 me-3">
+                                            <i class="bi bi-clock-history"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="text-muted font-semibold">Tiempo de Entrega</h6>
+                                            <h6 class="font-extrabold mb-0">4.2 Horas</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Gráfico de Pruebas más solicitadas -->
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Volumen de Exámenes Semanal</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chart-profile-visit"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Gráfico tipo Donut: Distribución -->
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Tipos de Examen</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chart-exam-types"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tabla de Resumen de Bioanalistas -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Productividad por Bioanalista</h4>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Bioanalista</th>
+                                                <th>Muestras Procesadas</th>
+                                                <th>Validaciones</th>
+                                                <th>Eficiencia</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Dr. Ricardo Alfonzo</td>
+                                                <td>450</td>
+                                                <td>442</td>
+                                                <td><div class="progress progress-primary mt-2 text-center"><div class="progress-bar" style="width: 95%">95%</div></div></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dra. Elena Martínez</td>
+                                                <td>380</td>
+                                                <td>375</td>
+                                                <td><div class="progress progress-success mt-2"><div class="progress-bar" style="width: 98%">98%</div></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start"><p>2026 &copy; BIO-LAB</p></div>
+                    <div class="float-end"><p>Desarrollado por Miguel</p></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/static/js/components/dark.js"></script>
+    <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/compiled/js/app.js"></script>
+    <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Script simple para activar un gráfico de ejemplo -->
+    <script>
+        var optionsProfileVisit = {
+            annotations: { position: 'back' },
+            dataLabels: { enabled: false },
+            chart: { type: 'bar', height: 300, toolbar: { show: false } },
+            fill: { opacity: 1 },
+            plotOptions: {},
+            series: [{ name: 'Exámenes', data: [9, 20, 30, 20, 10, 20, 30] }],
+            colors: '#435ebe',
+            xaxis: { categories: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"] },
+        };
+        var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
+        chartProfileVisit.render();
+
+        var optionsExams = {
+            series: [44, 55, 13, 43],
+            chart: { width: 380, type: 'pie' },
+            labels: ['Hematología', 'Química', 'Uroanálisis', 'Otros'],
+            responsive: [{ breakpoint: 480, options: { chart: { width: 200 }, legend: { position: 'bottom' } } }]
+        };
+        var chartExams = new ApexCharts(document.querySelector("#chart-exam-types"), optionsExams);
+        chartExams.render();
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIO-LAB - Historias Médicas</title>
+    
+    <link rel="stylesheet" crossorigin href="./assets/compiled/css/app.css">
+    <link rel="stylesheet" crossorigin href="./assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+    <script src="assets/static/js/initTheme.js"></script>
+    <div id="app">
+        <!-- El Sidebar se mantiene igual que en tu index e historias -->
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1">
+                            <h3>Buscador de Historias Médicas</h3>
+                            <p class="text-subtitle text-muted">Consulte el historial de exámenes y resultados por paciente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="section">
+                    <!-- Buscador Rápido -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group position-relative has-icon-left">
+                                        <input type="text" class="form-control" placeholder="Buscar por Cédula o Nombre del paciente...">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-search"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-primary w-100">Consultar Historia</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resultado de la consulta (Sección que se llenaría con Python/JS) -->
+                    <div class="row">
+                        <!-- Perfil del Paciente -->
+                        <div class="col-12 col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="avatar avatar-xl bg-primary mb-3">
+                                            <span class="avatar-content">JD</span>
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <h5 class="mb-0">Juan David Pérez</h5>
+                                        <p class="text-muted">V-25.123.456</p>
+                                        <hr>
+                                        <div class="text-start">
+                                            <p><strong>Edad:</strong> 28 años</p>
+                                            <p><strong>Sexo:</strong> Masculino</p>
+                                            <p><strong>Tipo de Sangre:</strong> O Rh+</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Lista de Exámenes Realizados -->
+                        <div class="col-12 col-lg-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Historial de Órdenes</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-lg">
+                                            <thead>
+                                                <tr>
+                                                    <th>Fecha</th>
+                                                    <th>Examen / Perfil</th>
+                                                    <th>Estado</th>
+                                                    <th>Acción</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>10/05/2026</td>
+                                                    <td>Hematología Completa, Glicemia</td>
+                                                    <td><span class="badge bg-success">Validado</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                        <button class="btn btn-sm btn-outline-danger"><i class="bi bi-file-earmark-pdf"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>02/03/2026</td>
+                                                    <td>Perfil Lipídico, Orina</td>
+                                                    <td><span class="badge bg-success">Validado</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                                        <button class="btn btn-sm btn-outline-danger"><i class="bi bi-file-earmark-pdf"></i></button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Hoy</td>
+                                                    <td>Perfil Hepático</td>
+                                                    <td><span class="badge bg-warning text-dark">En Proceso</span></td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-outline-secondary" disabled><i class="bi bi-hourglass-split"></i></button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start"><p>2026 &copy; BIO-LAB</p></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="assets/compiled/js/app.js"></script>
+</body>
+</html>
