@@ -6,19 +6,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reportes y Estadísticas - BIO-LAB</title>
     
-    <link rel="stylesheet" crossorigin href="./assets/compiled/css/app.css">
-    <link rel="stylesheet" crossorigin href="./assets/compiled/css/app-dark.css">
-    <link rel="stylesheet" crossorigin href="./assets/compiled/css/iconly.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2034'%20fill-rule='evenodd'%20stroke-linejoin='round'%20stroke-miterlimit='2'%20xmlns:v='https://vecta.io/nano'%3e%3cpath%20d='M3%2027.472c0%204.409%206.18%205.552%2013.5%205.552%207.281%200%2013.5-1.103%2013.5-5.513s-6.179-5.552-13.5-5.552c-7.281%200-13.5%201.103-13.5%205.513z'%20fill='%23435ebe'%20fill-rule='nonzero'/%3e%3ccircle%20cx='16.5'%20cy='8.8'%20r='8.8'%20fill='%2341bbdd'/%3e%3c/svg%3e" type="image/x-icon">
+
+    <link rel="stylesheet" crossorigin href="assets/compiled/css/app.css">
+    <link rel="stylesheet" crossorigin href="assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" crossorigin href="assets/compiled/css/iconly.css">
+
+    <link rel="stylesheet" href="assets/compiled/css/biolab.css">
 </head>
 
 <body>
     <script src="assets/static/js/initTheme.js"></script>
     <div id="app">
-        <!-- SIDEBAR (Igual al index, pero activo en Reportes) -->
         <div id="sidebar">
-            <!-- ... (Mismo contenido del sidebar que el index) ... -->
-            <!-- Asegúrate de poner la clase 'active' en el li de Reportes -->
+            <div class="sidebar-wrapper active">
+                <div class="sidebar-header position-relative">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="logo">
+                            <a href="index.html" class="d-flex align-items-center gap-3" style="text-decoration: none;">
+                                <div style="width: 65px; height: 65px; border-radius: 50%; overflow: hidden; background-color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.18); border: 2px solid #1a2bf0; flex-shrink: 0;">
+                                    <img src="imagenes/photo_2026-05-20_23-10-37.jpg" 
+                                         alt="Logo Fe y Alegría" 
+                                         style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.15); image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                                </div>
+                                <span style="font-size: 1.4rem; font-weight: 800; color: #1a2bf0; letter-spacing: 1px; text-transform: uppercase;">BIO-LAB</span>
+                            </a>
+                        </div>
+                        
+                        <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 21 21">
+                                <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2" opacity=".3"></path>
+                                    <g transform="translate(-210 -1)">
+                                        <path d="M220.5 2.5v2m6.5.5l-1.5 1.5"></path>
+                                        <circle cx="220.5" cy="11.5" r="4"></circle>
+                                        <path d="m214 5l1.5 1.5m5 14v-2m6.5-.5l-1.5-1.5M214 18l1.5-1.5m-4-5h2m14 0h2"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="form-check form-switch fs-6">
+                                <input class="form-check-input me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
+                                <label class="form-check-label"></label>
+                            </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3l1.06 3l3.19.09m3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95l2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31Z"></path>
+                            </svg>
+                        </div>
+                        <div class="sidebar-toggler x">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Principal</li>
+                        <li class="sidebar-item">
+                            <a href="index.html" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>Panel de Control</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-title">Gestión de Pacientes</li>
+                        <li class="sidebar-item has-sub">
+                            <a href="#" class="sidebar-link">
+                                <i class="bi bi-person-plus-fill"></i>
+                                <span>Pacientes</span>
+                            </a>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="paciente-registro.html" class="submenu-link">Registrar Nuevo</a>
+                                </li>
+                                <li class="submenu-item">
+                                    <a href="paciente-lista.html" class="submenu-link">Listado General</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="historias.html" class="sidebar-link">
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Historias Médicas</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-title">Administración</li>
+                        <li class="sidebar-item">
+                            <a href="medicos.html" class="sidebar-link">
+                                <i class="bi bi-person-badge-fill"></i>
+                                <span>Personal / Bioanalistas</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item active">
+                            <a href="reportes.html" class="sidebar-link">
+                                <i class="bi bi-graph-up"></i>
+                                <span>Reportes y Estadísticas</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="configuracion.html" class="sidebar-link">
+                                <i class="bi bi-gear-fill"></i>
+                                <span>Configuración</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="logout.html" class="sidebar-link">
+                                <i class="bi bi-box-arrow-left"></i>
+                                <span>Cerrar Sesión</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div id="main">
@@ -28,63 +128,62 @@
                 </a>
             </header>
 
-            <div class="page-heading">
-                <div class="page-title">
-                    <div class="row">
-                        <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Reportes y Estadísticas</h3>
-                            <p class="text-subtitle text-muted">Análisis de muestras y productividad del laboratorio.</p>
+            <div class="page-content">
+                <div class="page-heading">
+                    <div class="page-title">
+                        <div class="row">
+                            <div class="col-12 col-md-6 order-md-1 order-last">
+                                <h3 class="mb-2">Reportes y Estadísticas</h3>
+                                <p class="text-subtitle text-muted">Análisis de muestras y productividad del laboratorio.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <section class="section">
                     <div class="row">
-                        <!-- Card: Total de Pruebas -->
-                        <div class="col-md-4">
-                            <div class="card">
+                        <div class="col-12 col-md-4">
+                            <div class="card shadow-sm">
                                 <div class="card-body px-4 py-4-5">
                                     <div class="d-flex align-items-center">
-                                        <div class="stats-icon green mb-2 me-3">
-                                            <i class="bi bi-activity"></i>
+                                        <div class="stats-icon green mb-2 me-3 d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-activity fs-4"></i>
                                         </div>
                                         <div>
                                             <h6 class="text-muted font-semibold">Total Pruebas (Mes)</h6>
-                                            <h6 class="font-extrabold mb-0">1,240</h6>
+                                            <h5 class="fw-bold text-dark mb-0">1,240</h5>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Card: Reactivos Críticos -->
-                        <div class="col-md-4">
-                            <div class="card">
+                        <div class="col-12 col-md-4">
+                            <div class="card shadow-sm">
                                 <div class="card-body px-4 py-4-5">
                                     <div class="d-flex align-items-center">
-                                        <div class="stats-icon red mb-2 me-3">
-                                            <i class="bi bi-exclamation-triangle"></i>
+                                        <div class="stats-icon red mb-2 me-3 d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-exclamation-triangle fs-4"></i>
                                         </div>
                                         <div>
                                             <h6 class="text-muted font-semibold">Alertas de Stock</h6>
-                                            <h6 class="font-extrabold mb-0">3 Insumos</h6>
+                                            <h5 class="fw-bold text-dark mb-0">3 Insumos</h5>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Card: Tiempo Promedio -->
-                        <div class="col-md-4">
-                            <div class="card">
+                        <div class="col-12 col-md-4">
+                            <div class="card shadow-sm">
                                 <div class="card-body px-4 py-4-5">
                                     <div class="d-flex align-items-center">
-                                        <div class="stats-icon blue mb-2 me-3">
-                                            <i class="bi bi-clock-history"></i>
+                                        <div class="stats-icon blue mb-2 me-3 d-flex align-items-center justify-content-center">
+                                            <i class="bi bi-clock-history fs-4"></i>
                                         </div>
                                         <div>
                                             <h6 class="text-muted font-semibold">Tiempo de Entrega</h6>
-                                            <h6 class="font-extrabold mb-0">4.2 Horas</h6>
+                                            <h5 class="fw-bold text-dark mb-0">4.2 Horas</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -93,63 +192,76 @@
                     </div>
 
                     <div class="row">
-                        <!-- Gráfico de Pruebas más solicitadas -->
-                        <div class="col-md-8">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4>Volumen de Exámenes Semanal</h4>
+                        <div class="col-12 col-lg-8">
+                            <div class="card shadow-sm">
+                                <div class="card-header pb-0">
+                                    <h4 class="fw-bold text-dark">Volumen de Exámenes Semanal</h4>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body mt-2">
                                     <div id="chart-profile-visit"></div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Gráfico tipo Donut: Distribución -->
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4>Tipos de Examen</h4>
+                        <div class="col-12 col-lg-4">
+                            <div class="card shadow-sm">
+                                <div class="card-header pb-0">
+                                    <h4 class="fw-bold text-dark">Tipos de Examen</h4>
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body mt-2 d-flex justify-content-center">
                                     <div id="chart-exam-types"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Tabla de Resumen de Bioanalistas -->
                     <div class="row">
                         <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4>Productividad por Bioanalista</h4>
+                            <div class="card shadow-sm">
+                                <div class="card-header pb-0">
+                                    <h4 class="fw-bold text-dark">Productividad por Bioanalista</h4>
                                 </div>
-                                <div class="card-body">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Bioanalista</th>
-                                                <th>Muestras Procesadas</th>
-                                                <th>Validaciones</th>
-                                                <th>Eficiencia</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Dr. Ricardo Alfonzo</td>
-                                                <td>450</td>
-                                                <td>442</td>
-                                                <td><div class="progress progress-primary mt-2 text-center"><div class="progress-bar" style="width: 95%">95%</div></div></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Dra. Elena Martínez</td>
-                                                <td>380</td>
-                                                <td>375</td>
-                                                <td><div class="progress progress-success mt-2"><div class="progress-bar" style="width: 98%">98%</div></div></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="card-body mt-3">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover align-middle">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Bioanalista</th>
+                                                    <th>Muestras Procesadas</th>
+                                                    <th>Validaciones</th>
+                                                    <th style="width: 30%;">Eficiencia</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="fw-bold text-dark">Dr. Ricardo Alfonzo</td>
+                                                    <td>450 muestras</td>
+                                                    <td>442 órdenes</td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <div class="progress progress-primary w-100 mb-0" style="height: 10px;">
+                                                                <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <span class="fw-bold text-primary small">95%</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="fw-bold text-dark">Dra. Elena Martínez</td>
+                                                    <td>380 muestras</td>
+                                                    <td>375 órdenes</td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <div class="progress progress-success w-100 mb-0" style="height: 10px;">
+                                                                <div class="progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <span class="fw-bold text-success small">98%</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -166,32 +278,34 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script src="assets/static/js/components/dark.js"></script>
     <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/compiled/js/app.js"></script>
+    
     <script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
 
-    <!-- Script simple para activar un gráfico de ejemplo -->
     <script>
+        // Gráfico de Barras - Volumen Semanal
         var optionsProfileVisit = {
             annotations: { position: 'back' },
             dataLabels: { enabled: false },
             chart: { type: 'bar', height: 300, toolbar: { show: false } },
             fill: { opacity: 1 },
-            plotOptions: {},
-            series: [{ name: 'Exámenes', data: [9, 20, 30, 20, 10, 20, 30] }],
-            colors: '#435ebe',
+            series: [{ name: 'Exámenes Procesados', data: [9, 20, 30, 20, 10, 20, 30] }],
+            colors: ['#1a2bf0'], // Ajustado al azul de BIO-LAB
             xaxis: { categories: ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"] },
         };
         var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
         chartProfileVisit.render();
 
+        // Gráfico de Torta/Donut - Tipos de Examen
         var optionsExams = {
             series: [44, 55, 13, 43],
-            chart: { width: 380, type: 'pie' },
+            chart: { width: '100%', height: 300, type: 'donut' }, // Cambiado a donut para mejor estética moderna
             labels: ['Hematología', 'Química', 'Uroanálisis', 'Otros'],
-            responsive: [{ breakpoint: 480, options: { chart: { width: 200 }, legend: { position: 'bottom' } } }]
+            colors: ['#1a2bf0', '#41bbdd', '#ffc107', '#56c596'], // Paleta armónica
+            legend: { position: 'bottom' },
+            responsive: [{ breakpoint: 480, options: { chart: { width: 280 }, legend: { position: 'bottom' } } }]
         };
         var chartExams = new ApexCharts(document.querySelector("#chart-exam-types"), optionsExams);
         chartExams.render();

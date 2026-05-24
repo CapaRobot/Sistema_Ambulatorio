@@ -1,0 +1,99 @@
+/* ==========================================================================
+   Estilos Personalizados para el Ambulatorio Fe y Alegría (BIO-LAB)
+   ========================================================================== */
+
+/* --- Elementos Simples Activos (Sin Submenú) --- */
+
+/* Color de fondo del ítem activo simple (ej: Panel de Control) */
+.sidebar-wrapper .sidebar-menu .sidebar-item.active:not(.has-sub) {
+    background-color: #1a2bf0 !important;
+}
+
+/* Enlace activo dentro del menú simple */
+.sidebar-wrapper .sidebar-menu .sidebar-item.active:not(.has-sub) .sidebar-link {
+    background-color: #1a2bf0 !important;
+    color: #ffffff !important;
+}
+
+/* Icono del ítem activo en dorado para resaltar */
+.sidebar-wrapper .sidebar-menu .sidebar-item.active:not(.has-sub) .sidebar-link i {
+    color: #ffd700 !important;
+}
+
+
+/* --- Estructura General del Menú Lateral --- */
+
+/* Títulos de las secciones del menú lateral */
+.sidebar-wrapper .sidebar-menu .sidebar-title {
+    color: #1a2bf0;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+
+/* --- Menús Desplegables Activos (Con Submenú como "Pacientes") --- */
+
+/* Suaviza el fondo del botón padre cuando el submenú está activo */
+.sidebar-wrapper .menu .sidebar-item.has-sub.active .sidebar-link {
+    background-color: rgba(26, 43, 240, 0.15) !important;
+    color: #1a2bf0 !important;
+}
+
+/* Asegura que el icono del botón padre activo mantenga el color institucional */
+.sidebar-wrapper .menu .sidebar-item.has-sub.active .sidebar-link i {
+    color: #1a2bf0 !important;
+}
+
+/* Cambia el fondo del bloque desplegado para que no sea un parche oscuro */
+.sidebar-wrapper .menu .sidebar-item.has-sub.active .submenu {
+    background-color: rgba(26, 43, 240, 0.04) !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Corrige la visibilidad al pasar el mouse por encima de los enlaces del submenú */
+.sidebar-wrapper .menu .submenu .submenu-item a:hover {
+    color: #1a2bf0 !important;
+    font-weight: 700;
+    padding-left: 8px;
+    transition: all 0.2s ease;
+}
+
+
+/* --- Componentes Globales del Sistema (Botones y Tarjetas) --- */
+
+/* Cambiar el color de los botones principales del sistema */
+.btn-primary {
+    background-color: #1a2bf0 !important;
+    border-color: #1a2bf0 !important;
+}
+.btn-primary:hover {
+    background-color: #111eb3 !important;
+    border-color: #111eb3 !important;
+}
+
+/* Ajuste de color para las estadísticas (Card de iconos del dashboard) */
+.stats-icon.purple {
+    background-color: #1a2bf0 !important;
+}
+
+/* El badge de prioridad o detalles importantes en amarillo/dorado institucional */
+.bg-light-warning {
+    background-color: #fff3cd !important;
+    color: #856404 !important;
+}
+
+
+/* --- Soporte Automatizado para Modo Oscuro (Theme Dark) --- */
+
+body.theme-dark .sidebar-wrapper .menu .sidebar-item.has-sub.active .sidebar-link {
+    background-color: rgba(65, 187, 221, 0.2) !important;
+    color: #41bbdd !important;
+}
+body.theme-dark .sidebar-wrapper .menu .sidebar-item.has-sub.active .sidebar-link i {
+    color: #41bbdd !important;
+}
+body.theme-dark .sidebar-wrapper .menu .submenu .submenu-item a:hover {
+    color: #41bbdd !important;
+}

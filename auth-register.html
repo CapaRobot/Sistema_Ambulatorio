@@ -6,69 +6,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Analista - BIO-LAB</title>
     
-    <!-- Favicon Unificado -->
     <link rel="shortcut icon" href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2034'%20fill-rule='evenodd'%20stroke-linejoin='round'%20stroke-miterlimit='2'%20xmlns:v='https://vecta.io/nano'%3e%3cpath%20d='M3%2027.472c0%204.409%206.18%205.552%2013.5%205.552%207.281%200%2013.5-1.103%2013.5-5.513s-6.179-5.552-13.5-5.552c-7.281%200-13.5%201.103-13.5%205.513z'%20fill='%23435ebe'%20fill-rule='nonzero'/%3e%3ccircle%20cx='16.5'%20cy='8.8'%20r='8.8'%20fill='%2341bbdd'/%3e%3c/svg%3e" type="image/x-icon">
 
-    <link rel="stylesheet" crossorigin href="./assets/compiled/css/app.css">
-    <link rel="stylesheet" crossorigin href="./assets/compiled/css/app-dark.css">
-    <link rel="stylesheet" crossorigin href="./assets/compiled/css/auth.css">
+    <link rel="stylesheet" crossorigin href="assets/compiled/css/app.css">
+    <link rel="stylesheet" crossorigin href="assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" crossorigin href="assets/compiled/css/auth.css">
+
+    <link rel="stylesheet" href="assets/compiled/css/biolab.css">
 </head>
 
 <body>
     <script src="assets/static/js/initTheme.js"></script>
-    <div id="auth">
-        <div class="row h-100">
-            <div class="col-lg-5 col-12">
-                <div id="auth-left">
-                    <div class="auth-logo mb-4">
-                        <!-- Logo BIO-LAB -->
-                        <a href="index.html" style="font-size: 2rem; font-weight: 700; text-decoration: none; color: #435ebe;">
-                            <i class="bi bi-droplet-blood text-danger"></i> BIO-LAB
-                        </a>
+    
+    <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh; padding: 20px;">
+        
+        <div class="card p-4 p-md-5" style="max-width: 500px; width: 100%; border: 2px solid #1a2bf0; border-radius: 15px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); background-color: #fff;">
+            
+            <div class="auth-logo d-flex justify-content-center mb-4">
+                <a href="index.html" class="d-flex flex-column align-items-center gap-2" style="text-decoration: none;">
+                    <div style="width: 85px; height: 85px; border-radius: 50%; overflow: hidden; background-color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 2px solid #1a2bf0;">
+                        <img src="imagenes/photo_2026-05-20_23-10-37.jpg" 
+                             alt="Logo Fe y Alegría" 
+                             style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.15); image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
                     </div>
-                    <h1 class="auth-title">Registrar.</h1>
-                    <p class="auth-subtitle mb-5">Cree una cuenta para el nuevo personal del laboratorio.</p>
+                    <span style="font-size: 1.8rem; font-weight: 800; color: #1a2bf0; letter-spacing: 1px; text-transform: uppercase; margin-top: 0.5rem;">BIO-LAB</span>
+                </a>
+            </div>
+            
+            <div class="text-center">
+                <h1 class="auth-title" style="font-size: 2rem; margin-bottom: 0.5rem;">Registrar</h1>
+                <p class="auth-subtitle mb-4" style="font-size: 1rem;">Cree una cuenta para el nuevo personal del laboratorio.</p>
+            </div>
 
-                    <form action="index.html">
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="email" class="form-control form-control-xl" placeholder="Correo electrónico" required>
-                            <div class="form-control-icon">
-                                <i class="bi bi-envelope"></i>
-                            </div>
-                        </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="text" class="form-control form-control-xl" placeholder="Nombre de usuario" required>
-                            <div class="form-control-icon">
-                                <i class="bi bi-person"></i>
-                            </div>
-                        </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-xl" placeholder="Contraseña" required>
-                            <div class="form-control-icon">
-                                <i class="bi bi-shield-lock"></i>
-                            </div>
-                        </div>
-                        <div class="form-group position-relative has-icon-left mb-4">
-                            <input type="password" class="form-control form-control-xl" placeholder="Confirmar contraseña" required>
-                            <div class="form-control-icon">
-                                <i class="bi bi-shield-check"></i>
-                            </div>
-                        </div>
-                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Crear Cuenta</button>
-                    </form>
-                    <div class="text-center mt-5 text-lg fs-4">
-                        <p class='text-gray-600'>¿Ya tiene una cuenta? <a href="login.html" class="font-bold">Ingresar</a>.</p>
+            <form action="index.html" method="POST">
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <input type="email" name="email" class="form-control form-control-xl" placeholder="Correo electrónico" required>
+                    <div class="form-control-icon">
+                        <i class="bi bi-envelope"></i>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-7 d-none d-lg-block">
-                <div id="auth-right" style="background: #435ebe; background: linear-gradient(145deg, #2e438e 0%, #435ebe 100%); display: flex; align-items: center; justify-content: center;">
-                     <div class="text-center text-white">
-                        <i class="bi bi-person-badge" style="font-size: 10rem; opacity: 0.2;"></i>
-                        <h2 class="text-white mt-3" style="opacity: 0.8;">Gestión de Personal</h2>
-                     </div>
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <input type="text" name="username" class="form-control form-control-xl" placeholder="Nombre de usuario" required>
+                    <div class="form-control-icon">
+                        <i class="bi bi-person"></i>
+                    </div>
                 </div>
+                <div class="form-group position-relative has-icon-left mb-3">
+                    <input type="password" name="password" class="form-control form-control-xl" placeholder="Contraseña" required>
+                    <div class="form-control-icon">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                </div>
+                <div class="form-group position-relative has-icon-left mb-4">
+                    <input type="password" name="confirm_password" class="form-control form-control-xl" placeholder="Confirmar contraseña" required>
+                    <div class="form-control-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                </div>
+
+                <div class="divider">
+                    <div class="divider-text text-muted small text-uppercase">Recuperación de Cuenta</div>
+                </div>
+
+                <div class="form-group position-relative mb-3">
+                    <label class="form-label small text-muted font-bold mb-1">Pregunta de Seguridad</label>
+                    <select class="form-select form-select-xl" name="pregunta_seguridad" required>
+                        <option value="" disabled selected>Seleccione una pregunta...</option>
+                        <option value="1">¿Cuál es el nombre de tu primera mascota?</option>
+                        <option value="2">¿En qué ciudad nació tu madre?</option>
+                        <option value="3">¿Cuál es tu libro o anime favorito?</option>
+                        <option value="4">¿Cuál fue el nombre de tu primera escuela?</option>
+                    </select>
+                </div>
+
+                <div class="form-group position-relative has-icon-left mb-4">
+                    <label class="form-label small text-muted font-bold mb-1">Respuesta Secreta</label>
+                    <input type="text" name="respuesta_seguridad" class="form-control form-control-xl" placeholder="Escriba su respuesta aquí" required autocomplete="off">
+                    <div class="form-control-icon" style="top: 38px;">
+                        <i class="bi bi-key-fill"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-2">Crear Cuenta</button>
+            </form>
+
+            <div class="text-center mt-4 fs-6">
+                <p class="text-gray-600 mb-0">¿Ya tiene una cuenta? <a href="login.html" class="font-bold">Ingresar</a>.</p>
             </div>
+            
         </div>
     </div>
 </body>

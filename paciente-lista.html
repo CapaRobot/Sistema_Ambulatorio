@@ -6,64 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listado de Pacientes - BIO-LAB</title>
     
-    <!-- Favicon Personalizado -->
     <link rel="shortcut icon" href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2034'%20fill-rule='evenodd'%20stroke-linejoin='round'%20stroke-miterlimit='2'%20xmlns:v='https://vecta.io/nano'%3e%3cpath%20d='M3%2027.472c0%204.409%206.18%205.552%2013.5%205.552%207.281%200%2013.5-1.103%2013.5-5.513s-6.179-5.552-13.5-5.552c-7.281%200-13.5%201.103-13.5%205.513z'%20fill='%23435ebe'%20fill-rule='nonzero'/%3e%3ccircle%20cx='16.5'%20cy='8.8'%20r='8.8'%20fill='%2341bbdd'/%3e%3c/svg%3e" type="image/x-icon">
 
     <link rel="stylesheet" href="assets/extensions/simple-datatables/style.css">
-    <link rel="stylesheet" crossorigin href="./assets/compiled/css/table-datatable.css">
-    <link rel="stylesheet" crossorigin href="./assets/compiled/css/app.css">
-    <link rel="stylesheet" crossorigin href="./assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" crossorigin href="assets/compiled/css/table-datatable.css">
+    
+    <link rel="stylesheet" crossorigin href="assets/compiled/css/app.css">
+    <link rel="stylesheet" crossorigin href="assets/compiled/css/app-dark.css">
+    <link rel="stylesheet" crossorigin href="assets/compiled/css/iconly.css">
+
+    <link rel="stylesheet" href="assets/compiled/css/biolab.css">
 </head>
 
 <body>
     <script src="assets/static/js/initTheme.js"></script>
     <div id="app">
-        <!-- SIDEBAR PERSONALIZADO -->
         <div id="sidebar">
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="index.html" style="font-size: 1.5rem; font-weight: 700;">
-                                <i class="bi bi-droplet-blood text-danger"></i> BIO-LAB
+                            <a href="index.html" class="d-flex align-items-center gap-3" style="text-decoration: none;">
+                                <div style="width: 65px; height: 65px; border-radius: 50%; overflow: hidden; background-color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.18); border: 2px solid #1a2bf0; flex-shrink: 0;">
+                                    <img src="imagenes/photo_2026-05-20_23-10-37.jpg" 
+                                         alt="Logo Fe y Alegría" 
+                                         style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.15); image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
+                                </div>
+                                <span style="font-size: 1.4rem; font-weight: 800; color: #1a2bf0; letter-spacing: 1px; text-transform: uppercase;">BIO-LAB</span>
                             </a>
                         </div>
-                        <!-- Toggle Dark Mode -->
+                        
                         <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
-                            <!-- (Iconos de sol/luna omitidos por brevedad, usa los mismos del index) -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 21 21">
+                                <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M10.5 14.5c2.219 0 4-1.763 4-3.982a4.003 4.003 0 0 0-4-4.018c-2.219 0-4 1.781-4 4c0 2.219 1.781 4 4 4zM4.136 4.136L5.55 5.55m9.9 9.9l1.414 1.414M1.5 10.5h2m14 0h2M4.135 16.863L5.55 15.45m9.899-9.9l1.414-1.415M10.5 19.5v-2m0-14v-2" opacity=".3"></path>
+                                    <g transform="translate(-210 -1)">
+                                        <path d="M220.5 2.5v2m6.5.5l-1.5 1.5"></path>
+                                        <circle cx="220.5" cy="11.5" r="4"></circle>
+                                        <path d="m214 5l1.5 1.5m5 14v-2m6.5-.5l-1.5-1.5M214 18l1.5-1.5m-4-5h2m14 0h2"></path>
+                                    </g>
+                                </g>
+                            </svg>
                             <div class="form-check form-switch fs-6">
                                 <input class="form-check-input me-0" type="checkbox" id="toggle-dark" style="cursor: pointer">
                                 <label class="form-check-label"></label>
                             </div>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                <path fill="currentColor" d="m17.75 4.09l-2.53 1.94l.91 3.06l-2.63-1.81l-2.63 1.81l.91-3.06l-2.53-1.94L12.44 4l1.06-3l1.06 3l3.19.09m3.5 6.91l-1.64 1.25l.59 1.98l-1.7-1.17l-1.7 1.17l.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95l2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85c-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14c.4-.4.82-.76 1.27-1.08c.75-.53 1.93.36 1.85 1.19c-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82c-2.81 3.14-2.7 7.96.31 10.98c3.02 3.01 7.84 3.12 10.98.31Z"></path>
+                            </svg>
+                        </div>
+                        <div class="sidebar-toggler x">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                         </div>
                     </div>
                 </div>
+                
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Principal</li>
                         <li class="sidebar-item">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="index.html" class="sidebar-link">
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Panel de Control</span>
                             </a>
                         </li>
+
                         <li class="sidebar-title">Gestión de Pacientes</li>
                         <li class="sidebar-item active has-sub">
-                            <a href="#" class='sidebar-link'>
+                            <a href="#" class="sidebar-link">
                                 <i class="bi bi-person-plus-fill"></i>
                                 <span>Pacientes</span>
                             </a>
-                            <ul class="submenu active">
-                                <li class="submenu-item"><a href="paciente-registro.html" class="submenu-link">Registrar Nuevo</a></li>
-                                <li class="submenu-item active"><a href="paciente-lista.html" class="submenu-link">Listado General</a></li>
+                            <ul class="submenu">
+                                <li class="submenu-item">
+                                    <a href="paciente-registro.html" class="submenu-link">Registrar Nuevo</a>
+                                </li>
+                                <li class="submenu-item active">
+                                    <a href="paciente-lista.html" class="submenu-link">Listado General</a>
+                                </li>
                             </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a href="historias.html" class="sidebar-link">
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Historias Médicas</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-title">Administración</li>
+                        <li class="sidebar-item">
+                            <a href="medicos.html" class="sidebar-link">
+                                <i class="bi bi-person-badge-fill"></i>
+                                <span>Personal / Bioanalistas</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="reportes.html" class="sidebar-link">
+                                <i class="bi bi-graph-up"></i>
+                                <span>Reportes y Estadísticas</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="configuracion.html" class="sidebar-link">
+                                <i class="bi bi-gear-fill"></i>
+                                <span>Configuración</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="logout.html" class="sidebar-link">
+                                <i class="bi bi-box-arrow-left"></i>
+                                <span>Cerrar Sesión</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- CONTENIDO PRINCIPAL -->
         <div id="main">
             <header class="mb-3">
                 <a href="#" class="burger-btn d-block d-xl-none">
@@ -71,64 +131,70 @@
                 </a>
             </header>
 
-            <div class="page-heading">
-                <div class="page-title">
-                    <div class="row">
-                        <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Base de Datos de Pacientes</h3>
-                            <p class="text-subtitle text-muted">Consulta y gestión de historias clínicas.</p>
+            <div class="page-content">
+                <div class="page-heading">
+                    <div class="page-title">
+                        <div class="row">
+                            <div class="col-12 col-md-6 order-md-1 order-last">
+                                <h3 class="mb-2">Base de Datos de Pacientes</h3>
+                                <p class="text-subtitle text-muted">Consulta y gestión de historias clínicas generales.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <section class="section">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h4 class="card-title">Pacientes Registrados</h4>
-                            <a href="paciente-registro.html" class="btn btn-primary btn-sm">+ Nuevo Paciente</a>
+                    <div class="card shadow-sm">
+                        <div class="card-header d-flex justify-content-between align-items-center pb-0">
+                            <h4 class="fw-bold text-dark mb-0">Pacientes Registrados</h4>
+                            <a href="paciente-registro.html" class="btn btn-primary shadow-sm">
+                                <i class="bi bi-plus-circle"></i> Nuevo Paciente
+                            </a>
                         </div>
-                        <div class="card-body">
-                            <table class="table table-striped" id="table1">
-                                <thead>
+                        <div class="card-body mt-3">
+                            <table class="table table-hover align-middle" id="table1">
+                                <thead class="table-light">
                                     <tr>
-                                        <th>ID/Cédula</th>
+                                        <th>ID / Cédula</th>
                                         <th>Nombre Completo</th>
                                         <th>Edad</th>
                                         <th>Último Examen</th>
                                         <th>Estado</th>
-                                        <th>Acciones</th>
+                                        <th class="text-center">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>25.123.456</td>
-                                        <td>Juan Pérez</td>
-                                        <td>32</td>
-                                        <td>Hematología Completa</td>
+                                        <td><code class="px-2 py-1 bg-light text-secondary rounded">V-25.123.456</code></td>
+                                        <td class="fw-bold text-dark">Juan Pérez</td>
+                                        <td>32 años</td>
+                                        <td class="text-bold-500">Hematología Completa</td>
                                         <td><span class="badge bg-success">Listo</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
-                                            <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-printer"></i></button>
+                                        <td class="text-center text-nowrap">
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="Ver Historial"><i class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-secondary" title="Imprimir Comprobante"><i class="bi bi-printer"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>18.999.888</td>
-                                        <td>María García</td>
-                                        <td>45</td>
-                                        <td>Perfil Lipídico</td>
-                                        <td><span class="badge bg-warning text-dark">En proceso</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                        <td><code class="px-2 py-1 bg-light text-secondary rounded">V-18.999.888</code></td>
+                                        <td class="fw-bold text-dark">María García</td>
+                                        <td>45 años</td>
+                                        <td class="text-bold-500">Perfil Lipídico</td>
+                                        <td><span class="badge bg-light-warning">En proceso</span></td>
+                                        <td class="text-center text-nowrap">
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="Ver Historial"><i class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-secondary" disabled><i class="bi bi-printer"></i></button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>12.345.678</td>
-                                        <td>Carlos Ruiz</td>
-                                        <td>58</td>
-                                        <td>Glicemia Post-Prandial</td>
+                                        <td><code class="px-2 py-1 bg-light text-secondary rounded">V-12.345.678</code></td>
+                                        <td class="fw-bold text-dark">Carlos Ruiz</td>
+                                        <td>58 años</td>
+                                        <td class="text-bold-500">Glicemia Post-Prandial</td>
                                         <td><span class="badge bg-danger">Urgente</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i></button>
+                                        <td class="text-center text-nowrap">
+                                            <button class="btn btn-sm btn-outline-primary me-1" title="Ver Historial"><i class="bi bi-eye"></i></button>
+                                            <button class="btn btn-sm btn-outline-secondary" disabled><i class="bi bi-printer"></i></button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -139,22 +205,18 @@
             </div>
 
             <footer>
-                <div class="footer clearfix mb-0 text-muted px-4">
-                    <div class="float-start">
-                        <p>2026 &copy; BIO-LAB</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Desarrollado por <a href="#">Miguel</a></p>
-                    </div>
+                <div class="footer clearfix mb-0 text-muted">
+                    <div class="float-start"><p>2026 &copy; BIO-LAB</p></div>
+                    <div class="float-end"><p>Desarrollado por Miguel</p></div>
                 </div>
             </footer>
         </div>
     </div>
 
-    <!-- SCRIPTS NECESARIOS -->
     <script src="assets/static/js/components/dark.js"></script>
     <script src="assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/compiled/js/app.js"></script>
+    
     <script src="assets/extensions/simple-datatables/umd/simple-datatables.js"></script>
     <script src="assets/static/js/pages/simple-datatables.js"></script>
 </body>
