@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -8,24 +8,20 @@
     
     <link rel="shortcut icon" href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2033%2034'%20fill-rule='evenodd'%20stroke-linejoin='round'%20stroke-miterlimit='2'%20xmlns:v='https://vecta.io/nano'%3e%3cpath%20d='M3%2027.472c0%204.409%206.18%205.552%2013.5%205.552%207.281%200%2013.5-1.103%2013.5-5.513s-6.179-5.552-13.5-5.552c-7.281%200-13.5%201.103-13.5%205.513z'%20fill='%23435ebe'%20fill-rule='nonzero'/%3e%3ccircle%20cx='16.5'%20cy='8.8'%20r='8.8'%20fill='%2341bbdd'/%3e%3c/svg%3e" type="image/x-icon">
 
-    <link rel="stylesheet" crossorigin href="assets/compiled/css/app.css">
-    <link rel="stylesheet" crossorigin href="assets/compiled/css/app-dark.css">
-    <link rel="stylesheet" crossorigin href="assets/compiled/css/auth.css">
-
-    <link rel="stylesheet" href="assets/compiled/css/biolab.css">
+    <link rel="stylesheet" crossorigin href="/assets/compiled/css/app.css">
+    <link rel="stylesheet" crossorigin href="/assets/compiled/css/app-dark.css"> <link rel="stylesheet" crossorigin href="/assets/compiled/css/auth.css">
+    <link rel="stylesheet" href="/assets/compiled/css/biolab.css">
 </head>
 
 <body>
-    <script src="assets/static/js/initTheme.js"></script>
-    
     <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh; padding: 20px;">
         
         <div class="card p-4 p-md-5" style="max-width: 500px; width: 100%; border: 2px solid #1a2bf0; border-radius: 15px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); background-color: #fff;">
             
             <div class="auth-logo d-flex justify-content-center mb-4">
-                <a href="index.html" class="d-flex flex-column align-items-center gap-2" style="text-decoration: none;">
+                <a href="/" class="d-flex flex-column align-items-center gap-2" style="text-decoration: none;">
                     <div style="width: 85px; height: 85px; border-radius: 50%; overflow: hidden; background-color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); border: 2px solid #1a2bf0;">
-                        <img src="imagenes/photo_2026-05-20_23-10-37.jpg" 
+                        <img src="/imagenes/photo_2026-05-20_23-10-37.jpg" 
                              alt="Logo Fe y Alegría" 
                              style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.15); image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;">
                     </div>
@@ -38,30 +34,69 @@
                 <p class="auth-subtitle mb-4" style="font-size: 1rem;">Cree una cuenta para el nuevo personal del laboratorio.</p>
             </div>
 
-            <form action="index.html" method="POST">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{% if category == 'success' %}success{% else %}danger{% endif %} text-center small font-bold mb-3 p-2" role="alert">
+                      <i class="bi {% if category == 'success' %}bi-check-circle-fill{% else %}bi-exclamation-triangle-fill{% endif %}"></i> {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+
+            <form action="/registrar" method="POST" id="formRegistro" novalidate>
+                
                 <div class="form-group position-relative has-icon-left mb-3">
-                    <input type="email" name="email" class="form-control form-control-xl" placeholder="Correo electrónico" required>
+                    <input type="email" id="email" name="email" class="form-control form-control-xl" placeholder="Correo electrónico" required>
                     <div class="form-control-icon">
                         <i class="bi bi-envelope"></i>
                     </div>
                 </div>
+                <div id="error-email" class="text-danger small font-bold mb-3 d-none" style="padding-left: 5px;">
+                    <i class="bi bi-exclamation-circle-fill"></i> Por favor, ingresa un correo electrónico válido (ejemplo@correo.com).
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group position-relative has-icon-left mb-3">
+                            <input type="text" name="firstname" class="form-control form-control-xl" placeholder="Nombre" required>
+                            <div class="form-control-icon">
+                                <i class="bi bi-card-text"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group position-relative has-icon-left mb-3">
+                            <input type="text" name="lastname" class="form-control form-control-xl" placeholder="Apellido" required>
+                            <div class="form-control-icon">
+                                <i class="bi bi-card-text"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group position-relative has-icon-left mb-3">
                     <input type="text" name="username" class="form-control form-control-xl" placeholder="Nombre de usuario" required>
                     <div class="form-control-icon">
                         <i class="bi bi-person"></i>
                     </div>
                 </div>
+                
                 <div class="form-group position-relative has-icon-left mb-3">
-                    <input type="password" name="password" class="form-control form-control-xl" placeholder="Contraseña" required>
+                    <input type="password" id="password" name="password" class="form-control form-control-xl" placeholder="Contraseña" required>
                     <div class="form-control-icon">
                         <i class="bi bi-shield-lock"></i>
                     </div>
                 </div>
-                <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="password" name="confirm_password" class="form-control form-control-xl" placeholder="Confirmar contraseña" required>
+                
+                <div class="form-group position-relative has-icon-left mb-1">
+                    <input type="password" id="confirm_password" name="confirm_password" class="form-control form-control-xl" placeholder="Confirmar contraseña" required>
                     <div class="form-control-icon">
                         <i class="bi bi-shield-check"></i>
                     </div>
+                </div>
+                <div id="error-password" class="text-danger small font-bold mb-3 d-none" style="padding-left: 5px;">
+                    <i class="bi bi-exclamation-circle-fill"></i> Las contraseñas no coinciden.
                 </div>
 
                 <div class="divider">
@@ -91,10 +126,72 @@
             </form>
 
             <div class="text-center mt-4 fs-6">
-                <p class="text-gray-600 mb-0">¿Ya tiene una cuenta? <a href="login.html" class="font-bold">Ingresar</a>.</p>
+                <p class="text-gray-600 mb-0">¿Ya tiene una cuenta? <a href="/login" class="font-bold">Ingresar</a>.</p>
             </div>
             
         </div>
     </div>
+
+    <script>
+        const form = document.getElementById('formRegistro');
+        const emailInput = document.getElementById('email');
+        const errorEmailDiv = document.getElementById('error-email');
+        const pass = document.getElementById('password');
+        const confirmPass = document.getElementById('confirm_password');
+        const errorPassDiv = document.getElementById('error-password');
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        emailInput.addEventListener('input', function() {
+            if (emailRegex.test(emailInput.value)) {
+                errorEmailDiv.classList.add('d-none');
+                emailInput.classList.remove('is-invalid');
+                emailInput.classList.add('is-valid');
+            } else {
+                if (emailInput.value === "") {
+                    errorEmailDiv.classList.add('d-none');
+                    emailInput.classList.remove('is-invalid');
+                } else {
+                    errorEmailDiv.classList.remove('d-none');
+                    emailInput.classList.add('is-invalid');
+                    emailInput.classList.remove('is-valid');
+                }
+            }
+        });
+
+        emailInput.addEventListener('blur', function() {
+            if (!emailRegex.test(emailInput.value) && emailInput.value !== "") {
+                errorEmailDiv.classList.remove('d-none');
+                emailInput.classList.add('is-invalid');
+            }
+        });
+
+        confirmPass.addEventListener('input', function() {
+            if (pass.value === confirmPass.value) {
+                errorPassDiv.classList.add('d-none');
+                confirmPass.classList.remove('is-invalid');
+            }
+        });
+
+        form.addEventListener('submit', function(event) {
+            let tieneErrores = false;
+
+            if (!emailRegex.test(emailInput.value)) {
+                event.preventDefault();
+                errorEmailDiv.classList.remove('d-none');
+                emailInput.classList.add('is-invalid');
+                if(!tieneErrores) emailInput.focus();
+                tieneErrores = true;
+            }
+
+            if (pass.value !== confirmPass.value) {
+                event.preventDefault();
+                errorPassDiv.classList.remove('d-none');
+                confirmPass.classList.add('is-invalid');
+                if(!tieneErrores) confirmPass.focus();
+                tieneErrores = true;
+            }
+        });
+    </script>
 </body>
 </html>
